@@ -43,8 +43,9 @@ class aaswitems(object):
             finaltext = f.read()
                 
         for filetext in (fulltext, finaltext,):
-            # Break it by ---
-            itemtexts = re.split(r'---', filetext)
+            # Break it by --- on line by itself
+            linemarker = '\n---\n'
+            itemtexts = re.split(linemarker, filetext)
             
             for itemtext in itemtexts:
                 # If the entire item is blank, just skip it
